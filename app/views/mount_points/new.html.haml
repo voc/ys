@@ -1,0 +1,8 @@
+%h2= "Create mount point for production »#{@production.title}«"
+
+= render "shared/error_messages", target: @mount_point
+
+= form_for(@mount_point, as: :mount_point, url: { action: 'create'}) do |f|
+  = render partial: 'form', locals: {f: f}, objects: @mount_point
+
+  = f.submit 'Create'

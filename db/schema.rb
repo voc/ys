@@ -15,10 +15,8 @@ ActiveRecord::Schema.define(version: 20150717220530) do
 
   create_table "mount_points", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
     t.string   "format"
     t.string   "password"
-    t.string   "user"
     t.integer  "production_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -39,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150717220530) do
     t.string "mqtt_password"
     t.string "mqtt_username"
     t.text   "welcome_description"
+    t.string "icecast_server"
+    t.string "api_key"
   end
 
   create_table "user_sessions", force: :cascade do |t|

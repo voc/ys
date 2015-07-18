@@ -1,0 +1,8 @@
+%h2= "Edit mount point »#{@mount_point.name}«"
+
+= render "shared/error_messages", target: @mount_point
+
+= form_for(@mount_point, as: :mount_point, url: user_production_mount_point_path(user_id: @user, production_id: @production, id: @mount_point), method: 'PUT') do |f|
+  = render partial: 'form', locals: {f: f}, object: @mount_point
+
+  = f.submit 'Save changes'
