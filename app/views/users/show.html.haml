@@ -1,5 +1,12 @@
 %h2 Account Overview
-%dl
+
+%ul.page_menu
+  %li
+    %a{href: edit_user_path(@user)} edit
+  %li
+    %a{href: delete_user_path(@user)} delete
+
+%dl.account_information
   %dt Login name
   %dd= @user.login
   - unless @user.dect.empty?
@@ -12,30 +19,25 @@
     %dt E-Mail address
     %dd= @user.email
 
-%h2 Production
-%a{href: edit_user_path(@user)} edit
+%h2 Productions
 %p
   %a{href: new_user_production_path(user_id: @user)} create new production
   - if @productions.count == 0
     %p
       No production defined.
   - else
-    %table
-      %thead
-        %tr
-          %th Title
-          %th Description
-          %th Start time
-          %th End time
-          %th Actions
-      %tbody
-        - @productions.each do |production|
-          %tr
-            %td= production.title
-            %td= production.description
-            %td= production.start_time
-            %td= production.end_time
-            %td
-              %a{href: user_production_path({user_id: @user, id: production.id})} show
-              %a{href: edit_user_production_path({user_id: @user, id: production.id})} edit
-              %a{href: delete_user_production_path({user_id: @user, id: production.id})} delete
+    %ul.productions
+      - @productions.each do |production|
+        %li
+          = production.title
+          %a{href: user_production_path(user_id: @user, id: production.id)} show
+          %a{href: edit_user_production_path(user_id: @user, id: production.id)} edit
+          %a{href: delete_user_production_path(user_id: @user, id: production.id)} delete
+          %a{href: new_user_production_mount_point_path(user_id: @user, production_id: production.id)} create mount point
+          %ul.mount_points{id: production.title}
+            - production.mount_points.each do |mp|
+              %li
+                = mp.name
+                %a{href: user_production_mount_point_path(user_id: @user, production_id: production.id, id: mp)} show
+                %a{href: edit_user_production_mount_point_path(user_id: @user, production_id: production.id, id: mp)} edit
+                %a{href: delete_user_production_mount_point_path(user_id: @user, production_id: production.id, id: mp)} delete
