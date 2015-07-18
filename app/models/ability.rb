@@ -31,16 +31,25 @@ class Ability
 
     user ||= User.new
 
-    alias_action :create, :show, :update, :destroy, :delete, :to => :csud
+    alias_action :create, :show, :update, :delete, :destroy, :to => :csudd
 
     if user.admin?
+      # admins
       can :manage, :all
     elsif user.login.nil?
+      # anonymus
       can :create, User
     else
-      can :csud, User,         id: user.id
-      can :csud, MountPoint,   user_id: user.id
-      can :csud, Production, user_id: user.id
+      # normal user
+      can :csudd, User, id: user.id
+
+      can :csudd, Production, user_id: user.id
+
+      can :create, MountPoint
+      can [:show, :update, :delete, :destroy], MountPoint do |mp|
+        user_ids = user.productions.map(&:user_id)
+        user_ids.include? user.id
+      end
     end
   end
 end
