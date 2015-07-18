@@ -55,8 +55,7 @@ class UsersController < ApplicationController
                                  :password,
                                  :village,
                                  :dect,
-                                 :email,
-                                 :admin)
+                                 :email)
   end
 
   def user_params

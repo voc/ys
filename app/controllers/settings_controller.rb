@@ -2,8 +2,6 @@ class SettingsController < ApplicationController
   load_and_authorize_resource
 
   before_filter :find_setting
-  before_filter :check_for_cancel, only: [:create, :update]
-
 
   def show
   end
@@ -37,11 +35,5 @@ class SettingsController < ApplicationController
 
   def find_setting
     @setting = Setting.current
-  end
-
-  def check_for_cancel
-    if params[:commit] == "Cancel"
-      redirect_to settings_path(@settings)
-    end
   end
 end
