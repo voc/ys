@@ -1,2 +1,4 @@
 %label{for: 'name'} Name:
 = f.text_field :name
+%label{for: 'format'} Format:
+= collection_select(:mount_point, :format, MountPoint::FORMATS.map { |k,v| [v, k.to_s] }, :first, :last, include_blank: true)
