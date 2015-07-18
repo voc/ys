@@ -1,0 +1,13 @@
+- if current_user
+  %ul
+    %li
+      = current_user.login
+    %li
+      %a{href: logout_path} logout
+
+- else
+  %ul
+    %li
+      %a{href: login_path} login
+    %li
+      %a{href: new_user_path} register

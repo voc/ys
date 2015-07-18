@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'authlogic', '~> 3.4.6'
+gem 'cancancan', '~> 1.12.0'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

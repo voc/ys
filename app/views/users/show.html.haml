@@ -1,0 +1,22 @@
+%h2 Account Overview
+%dl
+  %dt Login name
+  %dd= @user.login
+  - unless @user.dect.empty?
+    %dt DECT number
+    %dd= @user.dect
+  - unless @user.village.empty?
+    %dt Village
+    %dd= @user.village
+  - unless @user.email.empty?
+    %dt E-Mail address
+    %dd= @user.email
+
+%a{href: edit_user_path(@user)} edit
+
+- if @productions.count == 0
+  %p
+    No production defined.
+    %a{href: new_user_production_path(user_id: @user)} create new production
+- else
+  %table

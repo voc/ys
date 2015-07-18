@@ -1,0 +1,27 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    %title= content_for?(:title) ? yield(:title) : "yolo streaming register"
+
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+
+  %body
+    %h1
+      %a{href: root_path} your stream
+    #menu
+      = render 'layouts/menu'
+
+    #content
+      = yield
+
+    %footer
+    %br
+    %br
+    #debug
+      -#= session.inspect

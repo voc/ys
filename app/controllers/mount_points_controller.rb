@@ -1,0 +1,3 @@
+class MountPointsController < ApplicationController
+
+end

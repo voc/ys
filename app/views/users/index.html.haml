@@ -1,0 +1,19 @@
+%h2 Users
+
+%table
+  %thead
+    %tr
+      %th Login name
+      %th Productions count
+      %th Action
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          %a{href: user_path(user)}= user.login
+        %td
+          %a{href: user_path(user)}= user.productions.count
+        %td
+          %a{href: user_path(user)} show
+          %a{href: edit_user_path(user)} edit
+          %a{href: delete_user_path(user)} delete

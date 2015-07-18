@@ -1,0 +1,10 @@
+%h2 Login
+
+= render "shared/error_messages", :target => @user_session
+
+= form_for(@user_session, as: :user_session, url: { action: 'create' }) do |f|
+  = render partial: 'form', locals: {f: f}, object: @user_session
+
+  = f.submit 'Login'
+
+= button_to "Register", new_user_path, method: "get"

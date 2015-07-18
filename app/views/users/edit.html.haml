@@ -1,0 +1,10 @@
+%h2= "Edit #{@user.login}"
+
+= form_for(@user, as: :user, url: user_path(@user), method: 'PUT') do |f|
+  = render partial: 'form', locals: {f: f}, object: @user
+
+  - if current_user.admin
+    %label{for: 'admin'} Admin:
+    = f.check_box :admin
+
+  = f.submit 'Save changes'
