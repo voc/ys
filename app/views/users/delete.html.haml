@@ -1,5 +1,6 @@
 %form{action: user_path(@user), method: 'POST'}
   %input{type: 'hidden', name: '_method', value: 'DELETE'}
+  %input{type: 'hidden', name: 'authenticity_token', value: form_authenticity_token}
 
   %p
     = "You really whant to delete #{@user.login}?"
