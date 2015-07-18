@@ -19,7 +19,8 @@ class MountPointsController < ApplicationController
     @mount_point.production = @production
 
     if @mount_point.save
-      redirect_to user_productions_path(user_id: @user)
+      @mount_point.send_mqtt_message
+      redirect_to user_production_mount_point_path(user_id: @user, production_id: @production, id: @mount_point)
     else
       render action: 'new'
     end
