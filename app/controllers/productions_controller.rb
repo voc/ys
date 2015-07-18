@@ -17,7 +17,7 @@ class ProductionsController < ApplicationController
     @production.user = @user
 
     if @production.save
-      redirect_to user_productions_path(user_id: @user)
+      redirect_to user_path(@user)
     else
       render action: 'new'
     end
