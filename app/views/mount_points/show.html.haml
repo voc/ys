@@ -1,1 +1,29 @@
-%h2= "Production »#{@production.title}« mount point »#{@mount_point.name}«"
+%h2= "Production »#{@production.title}« mount point »#{@mount_point.mount_name}«"
+
+%ul.submenu
+  %li
+    %a{href: edit_user_production_mount_point_path(user_id: @user,
+                                                   production_id: @production,
+                                                   id: @mount_point)} edit
+  %li
+    %a{href: delete_user_production_mount_point_path(user_id: @user,
+                                                   production_id: @production,
+                                                   id: @mount_point)} delete
+
+%h3 Details
+
+%dl.details
+  %dt Server URI
+  %dd
+    %code= @mount_point.uri
+  %dt Mount point
+  %dd
+    %code= @mount_point.mount_name
+  %dt User name
+  %dd
+    %code= @mount_point.user_name
+  %dt Password
+  %dd
+    %code= @mount_point.password
+
+%h3 Examples

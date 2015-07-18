@@ -1,4 +1,4 @@
-%h2= "Delete #{@mount_point.name}"
+%h2= "Delete mount point »#{@mount_point.name}«"
 
 %form{action: user_production_mount_point_path(user_id: @user, production_id: @production, id: @mount_point), method: 'POST'}
   %input{type: 'hidden', name: '_method', value: 'DELETE'}

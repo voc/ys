@@ -5,4 +5,5 @@
 = form_for(@production, as: :production, url: { action: 'create'}) do |f|
   = render partial: 'form', locals: {f: f}, objects: @production
 
-  = f.submit 'Create'
+  #button
+    = f.submit 'Create'

@@ -1,4 +1,4 @@
-%h2= "Delete #{@production.title}"
+%h2= "Delete »#{@production.title}«"
 
 %form{action: user_production_path(user_id: @user, id: @production), method: 'POST'}
   %input{type: 'hidden', name: '_method', value: 'DELETE'}

@@ -5,4 +5,5 @@
 = form_for(@mount_point, as: :mount_point, url: { action: 'create'}) do |f|
   = render partial: 'form', locals: {f: f}, objects: @mount_point
 
-  = f.submit 'Create'
+  #button
+    = f.submit 'Create'

@@ -2,3 +2,8 @@
 = f.text_field :name
 %label{for: 'format'} Format:
 = collection_select(:mount_point, :format, MountPoint::FORMATS.map { |k,v| [v, k.to_s] }, :first, :last, include_blank: true)
+- if  params[:action] == 'edit'
+  %label{for: 'user_name'} User name:
+  = f.text_field :user_name
+  %label{for: 'password'} password:
+  = f.text_field :password

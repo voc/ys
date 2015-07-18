@@ -1,4 +1,32 @@
 %h2= "Production »#{@production.title}«"
 
-- @production.mount_points do |mp|
-  = mp.name
+%ul.submenu
+  %li
+    %a{href: edit_user_production_path(user_id: @user,
+                                       id: @production)} edit
+  %li
+    %a{href: delete_user_production_path(user_id: @user,
+                                         id: @production)} delete
+
+%h3 Details
+
+%dl.details
+  %dt Title
+  %dd
+    %code= @production.title
+  %dt Mount point
+  %dd
+    %code= @production.description
+
+%h3 Mount points
+
+%a{href: new_user_production_mount_point_path(user_id: @user, production_id: @production)} create mount point
+
+- if @production.mount_points.count == 0
+  %p
+    No mount points.
+- else
+  %ul
+  - @production.mount_points.each do |mp|
+    %li
+      %a{href: user_production_mount_point_path(user_id: @user, production_id: @production, id: mp)}= mp.uri

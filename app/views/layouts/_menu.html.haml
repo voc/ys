@@ -5,6 +5,8 @@
     - if current_user.admin?
       %li.settings
         %a{href: setting_path(Setting.current)} settings
+      %li.users
+        %a{href: users_path} users
     %li.logout
       %a{href: logout_path} logout
 

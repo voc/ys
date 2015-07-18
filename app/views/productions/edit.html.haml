@@ -5,4 +5,5 @@
 = form_for(@production, as: :production, url: user_production_path(user_id: @user, id: @production), method: 'PUT') do |f|
   = render partial: 'form', locals: {f: f}, object: @production
 
-  = f.submit 'Save changes'
+  #button
+    = f.submit 'Save'
