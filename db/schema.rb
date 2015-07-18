@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150717220530) do
   create_table "mount_points", force: :cascade do |t|
     t.string   "name"
     t.string   "format"
+    t.string   "user_name",     default: "relay"
     t.string   "password"
     t.integer  "production_id"
     t.datetime "created_at"
