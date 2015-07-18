@@ -7,6 +7,4 @@
 
   #button
     = f.submit 'Save changes'
-
-#button
-= button_to "Generate api key", setting_generate_api_key_path(@setting), method: "get", form_class: 'api_key'
+    = button_tag "Cancel", typ: 'button'
