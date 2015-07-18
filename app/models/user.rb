@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :productions
+  has_many :productions, dependent: :delete_all
 
   acts_as_authentic do |c|
     c.validate_email_field    = false
