@@ -1,0 +1,8 @@
+%h2 Create production
+
+= render "shared/error_messages", target: @production
+
+= form_for(@production, as: :production, url: { action: 'create'}) do |f|
+  = render partial: 'form', locals: {f: f}, objects: @production
+
+  = f.submit 'Create'

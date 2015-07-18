@@ -12,11 +12,30 @@
     %dt E-Mail address
     %dd= @user.email
 
+%h2 Production
 %a{href: edit_user_path(@user)} edit
-
-- if @productions.count == 0
-  %p
-    No production defined.
-    %a{href: new_user_production_path(user_id: @user)} create new production
-- else
-  %table
+%p
+  %a{href: new_user_production_path(user_id: @user)} create new production
+  - if @productions.count == 0
+    %p
+      No production defined.
+  - else
+    %table
+      %thead
+        %tr
+          %th Title
+          %th Description
+          %th Start time
+          %th End time
+          %th Actions
+      %tbody
+        - @productions.each do |production|
+          %tr
+            %td= production.title
+            %td= production.description
+            %td= production.start_time
+            %td= production.end_time
+            %td
+              %a{href: user_production_path({user_id: @user, id: production.id})} show
+              %a{href: edit_user_production_path({user_id: @user, id: production.id})} edit
+              %a{href: delete_user_production_path({user_id: @user, id: production.id})} delete

@@ -31,15 +31,15 @@ class Ability
 
     user ||= User.new
 
-    alias_action :create, :show, :update, :destroy, :to => :csud
+    alias_action :create, :show, :update, :destroy, :delete, :to => :csud
 
     if user.admin?
       can :manage, :all
     elsif user.login.nil?
       can :create, User
     else
-      can :csud, User, id: user.id
-      can :csud, MountPoint, user_id: user.id
+      can :csud, User,         id: user.id
+      can :csud, MountPoint,   user_id: user.id
       can :csud, Production, user_id: user.id
     end
   end

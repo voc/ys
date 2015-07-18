@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20150717220530) do
   end
 
   create_table "productions", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
