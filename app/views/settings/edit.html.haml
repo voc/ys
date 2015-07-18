@@ -1,0 +1,12 @@
+%h2= "Edit settings"
+
+= render "shared/error_messages", :target => @setting
+
+= form_for(@setting, as: :setting, url: setting_path(@setting), method: 'PUT') do |f|
+  = render partial: 'form', locals: {f: f}, object: @setting
+
+  #button
+    = f.submit 'Save changes'
+
+#button
+= button_to "Generate api key", setting_generate_api_key_path(@setting), method: "get", form_class: 'api_key'

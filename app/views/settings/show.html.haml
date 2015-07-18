@@ -1,4 +1,48 @@
 %h2 Settings
 
+%a{href: edit_setting_path(Setting.current)} edit
+
+%h3 MQTT
 - if @setting.mqtt?
-  -# TODO: show mqtt settings
+  %dl.mqtt
+    %dt Server
+    %dd
+      %code= @setting.mqtt_server
+    %dt Username
+    %dd
+      %code= @setting.mqtt_username
+    %dt Paswword
+    %dd
+      %code= @setting.mqtt_password
+- else
+  %p.mqtt.warning
+    MQTT server is not configured.
+
+%h3 Icecast
+- if @setting.icecast?
+  %dl.icecast
+    %dt Server
+    %dd
+      %code= @setting.icecast_server
+- else
+  %p.mqtt.warning
+    Icecast server is not configured.
+
+%h3 Text
+- if @setting.welcome_description?
+  %dl.text
+    %dt Welcome description
+    %dd= @setting.welcome_description
+- else
+  %p.welcome_description.warning
+    Welcome description not configured.
+
+%h3 API
+- if @setting.api_key?
+  %dl.api
+    %dt API-key
+    %dd
+      %code= @setting.api_key
+- else
+  %p.mqtt.warning
+    API-Key is not configured.

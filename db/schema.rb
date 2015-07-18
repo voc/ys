@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20150717220530) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.string "mqtt_server"
-    t.string "mqtt_password"
-    t.string "mqtt_username"
-    t.text   "welcome_description"
-    t.string "icecast_server"
+    t.string "mqtt_server",         default: "", null: false
+    t.string "mqtt_password",       default: "", null: false
+    t.string "mqtt_username",       default: "", null: false
+    t.text   "welcome_description", default: "", null: false
+    t.string "icecast_server",      default: "", null: false
     t.string "api_key"
   end
 
