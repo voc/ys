@@ -5,4 +5,5 @@
 = form_for(@user, as: :user) do |f|
   = render partial: 'form', locals: {f: f}, object: @user
 
-  = f.submit 'Register'
+  #button
+    = f.submit 'Register'
