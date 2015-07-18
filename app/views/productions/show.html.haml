@@ -1,1 +1,4 @@
 %h2= "Production »#{@production.title}«"
+
+- @production.mount_points do |mp|
+  = mp.name
