@@ -1,8 +1,0 @@
-%h2 Login
-
-= render "shared/error_messages", :target => @session
-
-%form_for(@session, as: :session, url: { action: "create" }) do |f|
-  = render partial: 'form', locals: {f: f}, object: @session
-
-  = f.submit 'Login'
