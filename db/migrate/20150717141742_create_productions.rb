@@ -5,6 +5,8 @@ class CreateProductions < ActiveRecord::Migration
       t.datetime   :start_time
       t.datetime   :end_time
       t.text       :description
+      t.attachment :logo
+      t.string     :logo_fingerprint
       t.belongs_to :user
 
       t.timestamps

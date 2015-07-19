@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :productions do
       member do
         get :delete
+        get 'remove_logo'
       end
 
       resources :mount_points do

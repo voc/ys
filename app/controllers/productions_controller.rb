@@ -46,13 +46,22 @@ class ProductionsController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def remove_logo
+    @production.logo.destroy
+    @production.logo = nil
+    @production.save
+
+    render action: 'edit'
+  end
+
   protected
 
   def production_params
     params.require(:production).permit(:title,
                                        :description,
                                        :start_time,
-                                       :end_time)
+                                       :end_time,
+                                       :logo)
   end
 
   def find_production

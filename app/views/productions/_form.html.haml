@@ -9,3 +9,8 @@
 = f.text_field :start_time
 %label{for: 'end_time'} Expacted end:
 = f.text_field :start_time
+%label{for: 'logo'} Logo:
+- if @production.logo?
+  = image_tag(@production.logo.url(:thumb), alt: 'current')
+  %a{href: remove_logo_user_production_path(user_id: @user, id: @production) } remove logo
+= f.file_field :logo

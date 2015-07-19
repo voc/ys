@@ -44,6 +44,7 @@ class Ability
       can :csudd, User, id: user.id
 
       can :csudd, Production, user_id: user.id
+      can :remove_logo, Production, user_id: user.id
 
       can :create, MountPoint
       can [:show, :update, :delete, :destroy], MountPoint do |mp|

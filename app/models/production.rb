@@ -5,4 +5,10 @@ class Production < ActiveRecord::Base
   validates :title, presence: true,  uniqueness: true
   validates :description, presence: true
   validates :user, presence: true
+
+  has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment :logo,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
+    size: { in: 0..512.kilobytes }
+  validates_attachment_file_name :logo, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 end
