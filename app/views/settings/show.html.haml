@@ -27,6 +27,15 @@
 - else
   %p.mqtt.warning
     Icecast server is not configured.
+- if @setting.cdn_server?
+  %dl.icecast
+    %dt CDN-Server
+    %dd
+      %code= @setting.cdn_server
+- else
+  %p.mqtt.warning
+    CDN-Server is not configured.
+
 
 %h3 Text
 - if @setting.welcome_description?
@@ -36,13 +45,3 @@
 - else
   %p.welcome_description.warning
     Welcome description not configured.
-
-%h3 API
-- if @setting.api_key?
-  %dl.api
-    %dt API-key
-    %dd
-      %code= @setting.api_key
-- else
-  %p.mqtt.warning
-    API-Key is not configured.

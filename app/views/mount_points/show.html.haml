@@ -13,9 +13,12 @@
 %h3 Details
 
 %dl.details
-  %dt Server URI
+  %dt Push server URI
   %dd
-    %code= @mount_point.uri
+    %code= @mount_point.push_uri
+  %dt CDN server URI
+  %dd
+    %code= @mount_point.client_uri
   %dt Mount point
   %dd
     %code= @mount_point.mount_name

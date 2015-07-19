@@ -17,11 +17,6 @@ class SettingsController < ApplicationController
     end
   end
 
-  def generate_api_key
-    @setting.api_key = SecureRandom.hex
-    render action: 'edit'
-  end
-
   protected
 
   def setting_params
@@ -30,6 +25,7 @@ class SettingsController < ApplicationController
                                     :mqtt_password,
                                     :welcome_description,
                                     :icecast_server,
+                                    :cdn_server,
                                     :api_key)
   end
 

@@ -32,4 +32,4 @@
   %ul
   - @production.mount_points.each do |mp|
     %li
-      %a{href: user_production_mount_point_path(user_id: @user, production_id: @production, id: mp)}= mp.uri
+      %a{href: user_production_mount_point_path(user_id: @user, production_id: @production, id: mp)}= mp.client_uri

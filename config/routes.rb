@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :settings, only: [:show, :edit, :update] do
-    get 'generate_api_key'
-  end
+  resources :settings, only: [:show, :edit, :update]
+
+  get 'api/v1/productions' => "api/v1/productions#index", defaults: {format: :json}
 
 end

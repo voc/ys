@@ -18,6 +18,11 @@
   - unless @user.email.blank?
     %dt E-Mail address
     %dd= @user.email
+  - if @user.admin?
+    %dt Admin
+    %dd= @user.admin?
+    %dt API-Key
+    %dd= @user.single_access_token
 
 %h2 Productions
 %p

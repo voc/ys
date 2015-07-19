@@ -34,8 +34,12 @@ class MountPoint < ActiveRecord::Base
     self.name.gsub(' ', '_')
   end
 
-  def uri
+  def push_uri
     URI("#{Setting.current.icecast_server}#{self.mount_name}")
+  end
+
+  def client_uri
+    URI("#{Setting.current.cdn_server}#{self.mount_name}")
   end
 
   def send_mqtt_message

@@ -1,0 +1,37 @@
+[
+<%- @productions.each_with_index do |production, p_index| %>
+  {
+    "title": "<%= production.title %>",
+    "description": "<%= production.description %>",
+    "related_to_user": "<%= production.user.login%>",
+    "logo":
+    <%- if production.logo? %>
+      {
+        "fingerprint": "<%= production.logo.fingerprint %>",
+        "name": "<%= production.logo.name %>",
+        "content_type": "<%= production.logo.content_type %>",
+        "size": "<%= production.logo.size %>",
+        "url": "<%= production.logo.url %>",
+        "thumb": "<%= production.logo.url(:thumb) %>",
+        "middle": "<%= production.logo.url(:middle) %>",
+        "updated_at": "<%= production.updated_at %>"
+      },
+    <%- else %>
+      null,
+    <%- end %>
+    "mount_points": [
+      <%- production.mount_points.each_with_index do |mp, mp_index| %>
+      {
+        "name": "<%= mp.name %>",
+        "format": "<%= mp.format %>",
+        "user_name": "<%= mp.user_name %>",
+        "password": "<%= mp.password %>",
+        "mount_name": "<%= mp.mount_name %>",
+        "push_uri": "<%= mp.push_uri %>",
+        "client_uri": "<%= mp.client_uri %>"
+      }<%= "," unless mp_index + 1 == production.mount_points.count %>
+      <%- end %>
+    ]
+  }<%= "," unless p_index + 1 == @productions.count %>
+<%- end %>
+]

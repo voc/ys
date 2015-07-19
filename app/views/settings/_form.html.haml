@@ -6,14 +6,12 @@
 %label{for: 'mqtt_password'} Password:
 = f.text_field :mqtt_password
 
-%h3 Icecast
-%label{for: 'icecast_server'} Server:
+%h3 Server
+%label{for: 'icecast_server'} Push Server:
 = f.text_field :icecast_server
+%label{for: 'cdn_server'} CDN Server:
+= f.text_field :cdn_server
 
-%h3 API
-%label{for: 'api_key'} API-Key:
-= f.text_field :api_key
-%a{href: setting_generate_api_key_path(@setting)} generate api key
 
 %h3 Text
 %label{for: 'welcome_description'} Welcome description:

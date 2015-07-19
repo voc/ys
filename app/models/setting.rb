@@ -23,6 +23,10 @@ class Setting < ActiveRecord::Base
     self.icecast_server.blank? ? false : true
   end
 
+  def cdn_server?
+    self.cdn_server.blank? ? false : true
+  end
+
   def welcome_description?
     self.welcome_description.blank? ? false : true
   end

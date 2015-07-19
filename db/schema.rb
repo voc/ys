@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150717220530) do
     t.string "mqtt_username",       default: "", null: false
     t.text   "welcome_description", default: "", null: false
     t.string "icecast_server",      default: "", null: false
-    t.string "api_key"
+    t.string "cdn_server",          default: "", null: false
   end
 
   create_table "user_sessions", force: :cascade do |t|

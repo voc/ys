@@ -8,8 +8,7 @@ class CreateSettings < ActiveRecord::Migration
       t.text   :welcome_description, null: false, default: ''
 
       t.string :icecast_server, null: false, default: ''
-
-      t.string :api_key
+      t.string :cdn_server, null: false, default: ''
     end
   end
 end
