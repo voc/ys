@@ -8,7 +8,8 @@ class Production < ActiveRecord::Base
 
   has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" },
                     path:":rails_root/public/system/:attachment/:id_partition_:style_:filename",
-                    url: "/system/:attachment/:id_partition_:style_:filename"
+                    url: "/system/:attachment/:id_partition_:style_:filename",
+                    override_file_permissions: 0644
   validates_attachment :logo,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
     size: { in: 0..512.kilobytes }
