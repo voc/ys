@@ -17,13 +17,17 @@
   %dt Mount point
   %dd
     %code= @production.description
+  - if @production.start_time
+    %dt Start time
+    %dd= @production.start_time
+  - if @production.end_time
+    %dt end time
+    %dd= @production.end_time
   - if @production.logo?
     %dt logo
     %dd
       = image_tag @production.logo.url(:thumb)
 %h3 Mount points
-
-%a{href: new_user_production_mount_point_path(user_id: @user, production_id: @production)} create mount point
 
 - if @production.mount_points.count == 0
   %p
@@ -33,3 +37,6 @@
   - @production.mount_points.each do |mp|
     %li
       %a{href: user_production_mount_point_path(user_id: @user, production_id: @production, id: mp)}= mp.client_uri
+
+%br
+%a{href: new_user_production_mount_point_path(user_id: @user, production_id: @production)} create mount point
