@@ -21,19 +21,18 @@
     MQTT server is not configured.
 
 %h3 Icecast
+%dl.icecast
 - if @setting.icecast?
-  %dl.icecast
-    %dt Server
-    %dd
-      %code= @setting.icecast_server
+  %dt Server
+  %dd
+    %code= @setting.icecast_server
 - else
-  %p.mqtt.warning
+  %p.icecast.warning
     Icecast server is not configured.
 - if @setting.cdn_server?
-  %dl.icecast
-    %dt CDN-Server
-    %dd
-      %code= @setting.cdn_server
+  %dt CDN-Server
+  %dd
+    %code= @setting.cdn_server
 - else
   %p.mqtt.warning
     CDN-Server is not configured.
