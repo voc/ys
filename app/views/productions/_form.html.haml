@@ -5,12 +5,22 @@
 = f.text_area :description
 
 %h3 Optional
-%label{for: 'start_time'} Expacted start:
-= f.text_field :start_time
-%label{for: 'end_time'} Expacted end:
-= f.text_field :start_time
+%label{for: 'start_time'} Expected start:
+= f.text_field :start_time, class: :datetimepicker
+%label{for: 'end_time'} Expected end:
+= f.text_field :end_time, class: :datetimepicker
 %label{for: 'logo'} Logo:
 - if @production.logo?
   = image_tag(@production.logo.url(:thumb), alt: 'current')
   %a{href: remove_logo_user_production_path(user_id: @user, id: @production) } remove logo
 = f.file_field :logo
+
+:javascript
+  jQuery('.datetimepicker').datetimepicker({
+    format:'d.m.Y H:i',
+    inline: false,
+    minDate: '13.08.2015',
+    maxDate: '18.08.2015',
+    formatDate:'d.m.Y',
+    lang:'en'
+  });
