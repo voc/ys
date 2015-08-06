@@ -2,7 +2,9 @@ class MountPoint < ActiveRecord::Base
   belongs_to :production
 
   validates :name, presence: true, format: /\A[a-zA-Z\s0-9]+\z/
+  validates :name, uniqueness: { scope: :format }
   validates :format, presence: true
+
 
   before_save  :check_password
 
