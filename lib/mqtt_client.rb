@@ -16,8 +16,7 @@ module MqttClient
              "#{message[:humans][:level]}"\
              "#{message[:humans][:text]}\n\n"
 
-        puts "#{{msg: message[:humans][:text],"\
-              "level: message[:humans][:level]}.to_json}"
+        puts "#{{msg: message[:humans][:text], level: message[:humans][:level]}.to_json}"
       else
         # for humanes
         client.publish("#{message[:humans][:path]}",
