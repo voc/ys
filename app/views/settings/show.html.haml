@@ -1,6 +1,8 @@
 %h2 Settings
 
-%a{href: edit_setting_path(Setting.current)} edit
+%ul
+  %li
+    %a{href: edit_setting_path(Setting.current)} edit
 
 %h3 MQTT
 - if @setting.mqtt?
