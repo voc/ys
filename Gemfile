@@ -35,7 +35,7 @@ gem 'cancancan', '~> 1.12.0'
 # mqtt lib
 gem 'mqtt', '~> 0.3.1'
 # Paperclip file management
-gem 'paperclip', '~> 4.3.0'
+gem 'paperclip', '~> 5.2.0'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
